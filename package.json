@@ -1,0 +1,47 @@
+{
+  "name": "ctx-manifest",
+  "version": "0.1.0",
+  "description": "Context assembly as a budgeted, auditable, revertible manifest — not a framework, a part.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./adapter/dsh": "./src/adapter/dsh.js",
+    "./adapter/standalone": "./src/adapter/standalone.js",
+    "./manifest": "./src/manifest.js",
+    "./router": "./src/router.js",
+    "./checkup": "./src/checkup.js"
+  },
+  "bin": {
+    "ctx-manifest-demo": "./examples/mini/demo.mjs"
+  },
+  "files": [
+    "src",
+    "scripts",
+    "checks",
+    "examples",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "demo": "node examples/mini/demo.mjs",
+    "probe": "node scripts/route-probe.mjs --manifest examples/mini/manifest.json",
+    "check": "node checks/manifest-checkup.mjs"
+  },
+  "keywords": [
+    "context-engineering",
+    "system-prompt",
+    "memory",
+    "manifest",
+    "agent"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://example.invalid/ctx-manifest.git"
+  }
+}

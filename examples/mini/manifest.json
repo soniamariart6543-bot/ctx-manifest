@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "updated": "2026-10-26",
+  "note": "示例清单（8 条）：覆盖四层四模式，语料全部中性。把它当作形状参考 —— 换成你自己的条目、自己的文件。",
+  "budgets": {
+    "L1": 2600,
+    "L2": 900,
+    "L3": 1000,
+    "anchor": 500,
+    "total": 5000
+  },
+  "limits": {
+    "L1": 2,
+    "L2": 5,
+    "L3": 6,
+    "anchor": 2
+  },
+  "units": [
+    {
+      "id": "identity.tone",
+      "title": "身份与语气（示例人设：分析师）",
+      "path": "corpus/identity.md",
+      "layer": "L1",
+      "mode": "excerpt",
+      "when": "always",
+      "keys": [],
+      "weight": 10,
+      "budget": 1200,
+      "salience": 9,
+      "subgroup": "system"
+    },
+    {
+      "id": "contract.output",
+      "title": "输出契约（结构 / 长度 / 禁止项）",
+      "path": "corpus/contract.md",
+      "layer": "L1",
+      "mode": "excerpt",
+      "when": "always",
+      "keys": [],
+      "weight": 10,
+      "budget": 800,
+      "salience": 9,
+      "subgroup": "system"
+    },
+    {
+      "id": "rule.backup",
+      "title": "改文件前先备份",
+      "path": "corpus/workflow.md#改文件前先备份",
+      "layer": "L2",
+      "mode": "pointer",
+      "keys": [
+        "改文件",
+        "备份",
+        "改脚本",
+        "修改脚本",
+        "BOM",
+        "改一下",
+        "动这个文件",
+        "先存",
+        "存一份",
+        "修改之前"
+      ],
+      "weight": 7,
+      "budget": 140,
+      "pointer": "改文件顺序：备份 → 改 → 语法检查 → 比对哈希。→ corpus/workflow.md#改文件前先备份（何时读：要动脚本、配置或任何不可回滚的文件之前）",
+      "salience": 8,
+      "subgroup": "work"
+    },
+    {
+      "id": "rule.web",
+      "title": "抓网页的规矩",
+      "path": "corpus/webnotes.md#抓取规矩",
+      "layer": "L2",
+      "mode": "pointer",
+      "keys": [
+        "抓网页",
+        "抓一下",
+        "抓个网页",
+        "看看网页",
+        "网页内容",
+        "爬",
+        "被墙",
+        "反爬",
+        "下载网页",
+        "取一下",
+        "取这个页面"
+      ],
+      "weight": 6,
+      "budget": 140,
+      "pointer": "抓取顺序：直连 → 真实浏览器 → 落盘比对。→ corpus/webnotes.md#抓取规矩（何时读：要取外部页面、或直连被拦时）",
+      "salience": 7,
+      "subgroup": "net"
+    },
+    {
+      "id": "note.writing",
+      "title": "写作偏好（示例）",
+      "path": "corpus/writing.md",
+      "layer": "L3",
+      "mode": "lookup",
+      "keys": [
+        "写作",
+        "文风",
+        "措辞",
+        "语气",
+        "润色"
+      ],
+      "weight": 6,
+      "budget": 110,
+      "summary": "短句优先、结论先行、少形容词、术语保持原样",
+      "salience": 6,
+      "subgroup": "doc"
+    },
+    {
+      "id": "note.debug",
+      "title": "排错手册（示例）",
+      "path": "corpus/debug.md",
+      "layer": "L3",
+      "mode": "lookup",
+      "keys": [
+        "报错",
+        "排错",
+        "起不来",
+        "没反应",
+        "挂了",
+        "失败",
+        "排个错",
+        "出错了"
+      ],
+      "weight": 6,
+      "budget": 110,
+      "summary": "先日志 → 再探针 → 最后读源码；不许盲改",
+      "salience": 7,
+      "subgroup": "dev"
+    },
+    {
+      "id": "note.study",
+      "title": "学习笔记（示例）",
+      "path": "corpus/study.md",
+      "layer": "L3",
+      "mode": "lookup",
+      "keys": [
+        "学习",
+        "笔记",
+        "复习",
+        "考试",
+        "概念"
+      ],
+      "weight": 5,
+      "budget": 110,
+      "summary": "概念 → 例子 → 反例 → 一句话复述",
+      "salience": 5,
+      "subgroup": "academic"
+    },
+    {
+      "id": "anchor.handover",
+      "title": "会话交接末节",
+      "path": "corpus/workflow.md#会话交接",
+      "layer": "anchor",
+      "mode": "pointer",
+      "keys": [
+        "交接",
+        "上回",
+        "上次",
+        "接着"
+      ],
+      "weight": 5,
+      "budget": 220,
+      "pointer": "跨会话状态 = 交接文件的**最后一节**（何时读：她说「接着说 / 上回」或跨天开场时）",
+      "salience": 6,
+      "subgroup": "memory"
+    }
+  ]
+}

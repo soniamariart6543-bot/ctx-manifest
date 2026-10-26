@@ -1,0 +1,18 @@
+# 剥离工作区（从运行线复制来的快照，只作参考，不发布）
+_raw/
+
+# demo 运行产物
+.demo-trace/
+
+# 依赖与工具产物
+node_modules/
+
+# 备份与临时件
+*.bak
+*.bak-*
+*.tmp
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store
