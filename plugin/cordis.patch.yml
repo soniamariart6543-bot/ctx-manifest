@@ -1,0 +1,6 @@
+# dsh-ctx-manifest bundle patch — mount the plugin under its own package name.
+# The plugin lives in ./plugin of the ctx-manifest repo; install it with a file:
+# dependency (see plugin/README.md) so that ../../src resolves to the repo source.
+- insert:
+    - id: ctx-manifest
+      name: dsh-ctx-manifest

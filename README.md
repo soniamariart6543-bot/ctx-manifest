@@ -72,7 +72,20 @@ examples/mini/      8 条示例清单 + 7 篇中性语料 + demo.mjs
 scripts/            尺子：route-probe / trace-stats / keys-clean / skill-doctor / gate
 checks/             运维三查：bom / manifest-checkup / handover-lag（统一 JSON 契约）
 docs/               BOUNDARY（边界冻结）· WHY · FALSE-GREEN · FAILURES
+plugin/             DSH 插件包装 dsh-ctx-manifest：三个只读工具 + 两条只读路由
 ```
+
+## 两种用法
+
+| 你想干什么 | 用什么 |
+|---|---|
+| 自己写宿主，只要库 | `import { createEngine } from "ctx-manifest"` |
+| 在 DSH 里用 | `plugin/` 里的 `dsh-ctx-manifest`（见 [plugin/README.md](plugin/README.md)） |
+| 只想先看一眼 | `node examples/mini/demo.mjs` |
+
+仓库根目录（`src/` `scripts/` `checks/` `docs/` `examples/`）是**原始框架**，不含任何宿主包装；
+`plugin/` 只是一层薄壳，通过相对路径 `../../src` 引用这份框架 —— 拆开是为了：不用 DSH 的人拿到干净的库，
+用 DSH 的人多装一个目录就有工具、路由和（可选）注入。插件默认 `mode: "off"`，装了不注入。
 
 ## 判据（全部可复跑）
 

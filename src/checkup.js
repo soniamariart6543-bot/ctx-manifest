@@ -376,7 +376,7 @@ export function checkup(manifest, opts = {}) {
 /** 人读报告（CLI / 工具 output 共用）。 */
 export function formatReport(r) {
   const out = [];
-  out.push(`本工具记忆内核体检 · ${r.at}`);
+  out.push(`ctx-manifest 体检 · ${r.at}`);
   out.push(`单元 ${r.units} 条 · 结论 ${r.code === 0 ? "全过" : r.code === 1 ? "有 error" : "仅 warn"}`);
   out.push("");
   for (const c of r.checks) {
