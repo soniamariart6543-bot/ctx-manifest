@@ -1,5 +1,40 @@
 # CHANGELOG
 
+## v0.1.1 — 2026-10-26
+
+DSH 插件化。内核一行没动，多了一种用起来的方式。
+
+### 新增
+
+| 内容 | 位置 |
+|---|---|
+| **DSH 插件 `dsh-ctx-manifest`** | `plugin/`：`package.json`（`dsh.plugin=true` + `bundle.patch`）· `cordis.patch.yml` · `lib/index.js`（调内核 `mount()`）· `lib/tools.js` · `README.md` |
+| 三个只读工具 | `ctx_probe`（回归集）· `ctx_checkup`（六类体检）· `ctx_status`（规模与预算）—— **都不写文件** |
+| 两条只读路由 | `GET /api/ctx-manifest/status` · `GET /api/ctx-manifest/checkup` |
+
+插件默认 `mode: "off"`：装完不注入任何上下文，只是「看得见 + 量得出」。要真注入得显式配 `shadow` 或 `clause`。
+
+### 判据（v0.1.1 实跑）
+
+| # | 判据 | 实测 |
+|---|---|---|
+| 1 | 插件能被假 ctx 加载并注册三个工具 | `ctx_probe, ctx_checkup, ctx_status` |
+| 2 | 回归集 | redline 4/4 · real 8/8 · paraphrase 10/10 · leak 0 · **PASS** |
+| 3 | 六类体检 | 悬空 / 过期 / 预算 / 覆盖 / 冲突 / 索引 → 全 OK |
+| 4 | 发布门 | `gate.mjs`：45 文件 / 3 私人词 / **0 命中** |
+
+### 修
+
+- `src/checkup.js`：报告标题「本工具记忆内核体检」→「ctx-manifest 体检」
+- `package.json`：`repository` / `homepage` / `bugs` 指向真实仓库；README 的 clone 命令去掉 `<this repo>` 占位
+- 插件层只声明 `inject: ["tools"]`，宿主差异仍全部关在 `src/adapter/dsh.js`
+
+### 说明
+
+插件依赖仓库源码（相对路径 `../../src`），**不单独发 npm tarball** —— 发了只剩包装、没有内核。
+
+---
+
 ## v0.1.0 — 2026-10-26
 
 首个可跑版本。目标不是「功能多」，是**讲清楚 + 可验证**。
