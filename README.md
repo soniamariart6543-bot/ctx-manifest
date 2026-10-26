@@ -6,7 +6,7 @@
 它负责按预算注入、留证据、体检、以及在你改坏时告诉你改坏了哪。
 
 ```bash
-git clone <this repo> && cd ctx-manifest
+git clone https://github.com/soniamariart6543-bot/ctx-manifest.git && cd ctx-manifest
 node examples/mini/demo.mjs "改文件之前要做什么"
 node scripts/route-probe.mjs
 ```

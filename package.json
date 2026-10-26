@@ -42,6 +42,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://example.invalid/ctx-manifest.git"
+    "url": "git+https://github.com/soniamariart6543-bot/ctx-manifest.git"
+  },
+  "homepage": "https://github.com/soniamariart6543-bot/ctx-manifest#readme",
+  "bugs": {
+    "url": "https://github.com/soniamariart6543-bot/ctx-manifest/issues"
   }
 }

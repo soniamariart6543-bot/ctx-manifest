@@ -19,7 +19,7 @@
 ### 一、从仓库装（推荐，插件依赖仓库源码）
 
 ```bash
-git clone <this repo> ctx-manifest
+git clone https://github.com/soniamariart6543-bot/ctx-manifest.git
 cd ctx-manifest
 ```
 
